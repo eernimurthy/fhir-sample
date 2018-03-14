@@ -14,12 +14,12 @@ public class MedicalRestController {
     @RequestMapping(method = RequestMethod.GET, path = "/patient")
     public Bundle patient() {
 
-        //TODO: Make this whole block single instance.
-        FhirContext context = FhirContext.forDstu3();
-        String serverBase = "http://hapi.fhir.org/baseDstu3"; //TODO: Move this to properties file.
-        IGenericClient client = context.newRestfulGenericClient(serverBase);
+        //TODO: Make this whole block singleton instance.
+        FhirContext fhirContext = FhirContext.forDstu3();
+        String fhirServerBase = "http://hapi.fhir.org/baseDstu3"; //TODO: Move this to properties file.
+        IGenericClient iGenericClient = fhirContext.newRestfulGenericClient(fhirServerBase);
 
-        Bundle results = client
+        Bundle results = iGenericClient
                 .search()
                 .forResource(Patient.class)
                 .where(Patient.FAMILY.matches().value("duck"))
