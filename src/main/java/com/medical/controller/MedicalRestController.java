@@ -1,4 +1,4 @@
-package com.dama.damdaSpringBoot;
+package com.medical.controller;
 
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.rest.client.api.IGenericClient;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class DamaRestController {
+public class MedicalRestController {
 
     @RequestMapping(method = RequestMethod.GET, path = "/patient")
     public Bundle patient() {
