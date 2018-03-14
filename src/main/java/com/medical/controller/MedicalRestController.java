@@ -15,9 +15,9 @@ public class MedicalRestController {
     public Bundle patient() {
 
         //TODO: Make this whole block single instance.
-        FhirContext ctx = FhirContext.forDstu3();
+        FhirContext context = FhirContext.forDstu3();
         String serverBase = "http://hapi.fhir.org/baseDstu3"; //TODO: Move this to properties file.
-        IGenericClient client = ctx.newRestfulGenericClient(serverBase);
+        IGenericClient client = context.newRestfulGenericClient(serverBase);
 
         Bundle results = client
                 .search()
